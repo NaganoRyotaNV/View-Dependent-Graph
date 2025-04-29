@@ -1,10 +1,7 @@
 # View-Dependent-Graph
 
-本リポジトリは Pascal3D⁺ と ObjectNet3D を  
-「物体 × 視線方向」ラベル付きデータセットへ加工し、  
-ViG (Vision GNN) 系バックボーンで学習・評価するまでを  
-ワンコマンドで再現できるようにまとめたプロジェクトです。
-
+本リポジトリは Pascal3D⁺ と ObjectNet3D を  「物体 × 視線方向」ラベル付きデータセットへ加工し、  
+ViG (Vision GNN) 系バックボーンで学習・評価とView-Dependent-Graphを実行するためのものです。
 ---
 
 ## 1. 必要データの取得
@@ -101,16 +98,3 @@ python train_eval1.py \
   --output ../results/test_data \
   --eval-dir test   # val/train も可
 ```
-
----
-
-## 6. よくあるトラブル
-
-| 症状 | チェック項目 |
-| :--- | :--- |
-| PytorchStreamWriter failed writing… | ディスク容量不足 (`df -h`) |
-| DataLoader が遅い | `--workers` 増加 / SSD配置 / `--pin-mem` 有効化 |
-| GPU メモリ不足 | `--batch-size` 減少 / `--amp` 有効化 |
-| Apex が無い | 上記 Apex 手順を実行 or FP32学習へ切替 |
-
----
