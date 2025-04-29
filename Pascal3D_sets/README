@@ -1,0 +1,38 @@
+# PASCAL3Dデータセット前処理スクリプト
+
+## 1. 方向別分類
+```python
+python split_pascal3d_directions.py \
+    --images_dir /mnt/data/PASCAL3D+_release1.1/Images \
+    --annotations_dir /mnt/data/PASCAL3D+_release1.1/Annotations \
+    --output_dir /mnt/data/maindata
+```
+
+## 2. データセットを方向分類したものを正方形クロップ処理
+```python
+python crop_square.py \
+    --src_dir /mnt/data/maindata \
+    --ann_dir /mnt/data/PASCAL3D+_release1.1/Annotations \
+    --out_dir /mnt/data/cropped_out
+```
+
+## 3. 方向分類とクロップしたものをtrain/test/valにデータセット分割
+```python
+python dataset_split.py \
+    --src_dir /mnt/data/cropped_out \
+    --out_dir /mnt/data/cropped_split \
+    --seed 42
+```
+
+## 4. 物体カテゴリ分類用に物体ラベルに統合
+```python
+python unify_direction.py \
+    --src_dir /mnt/data/cropped_split \
+    --out_dir /mnt/data/cropped_unified
+```
+
+
+### おまけ:matファイルの中身の確認コード
+```python
+python check_matfile.py "/mnt/data/ObjectNet3D/Annotations/n00000000_1.mat"
+```

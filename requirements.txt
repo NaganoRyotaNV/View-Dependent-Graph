@@ -1,0 +1,12 @@
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+timm>=1.0.15
+torchprofile==0.0.4
+numpy
+Pillow
+opencv-python
+matplotlib
+scipy
+PyYAML
+tqdm
