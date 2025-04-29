@@ -83,8 +83,6 @@ python train.py \
   --output ../results/train
 ```
 
-> Pascal3D⁺ で学習する場合は `--num-classes 51` に変更してください。
-
 ---
 
 ## 5. 評価 & 疑似アスペクトグラフ
